@@ -1,17 +1,64 @@
 import React from 'react';
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Switch,
     Route,
     Link,
     Redirect
 } from "react-router-dom";
+import styled from "styled-components";
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+`
+
+const Main = styled.div`
+  flex: 1;
+  overflow: auto;
+`
+
+const Nav = styled.nav`
+  border: 1px solid;
+  > ul {
+    display: flex;
+    > li {
+      padding: 16px 0;
+      width: 33.333%;
+      text-align: center;
+      > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+`
 
 function App() {
     return (
         <Router>
-            <div>
-                <nav>
+            <Wrapper>
+                <Main>
+                    <Switch>
+                        <Route path="/tags">
+                            <Tags/>
+                        </Route>
+                        <Route path="/money">
+                            <Money/>
+                        </Route>
+                        <Route path="/statistics">
+                            <Statistics/>
+                        </Route>
+
+                        <Redirect exact from="/" to="/money"/>
+                        <Route path="*">
+                            <NoMatch/>
+                        </Route>
+                    </Switch>
+                </Main>
+                <Nav>
                     <ul>
                         <li>
                             <Link to="/tags">标签</Link>
@@ -23,25 +70,8 @@ function App() {
                             <Link to="/statistics">统计</Link>
                         </li>
                     </ul>
-                </nav>
-
-                <Switch>
-                    <Route path="/tags">
-                        <Tags/>
-                    </Route>
-                    <Route path="/money">
-                        <Money/>
-                    </Route>
-                    <Route path="/statistics">
-                        <Statistics/>
-                    </Route>
-
-                    <Redirect exact from="/" to="/money" />
-                    <Route path="*">
-                        <NoMatch/>
-                    </Route>
-                </Switch>
-            </div>
+                </Nav>
+            </Wrapper>
         </Router>
     );
 }
