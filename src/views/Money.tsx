@@ -3,17 +3,34 @@ import React from "react";
 import styled from "styled-components";
 
 const TagsSection = styled.section`
-  
+  padding: 12px 16px;
+  background: #fff;
+  > ol {
+    margin: 0 -12px;
+      > li {
+        padding: 3px 18px;
+        margin: 8px 12px;
+        display: inline-block;
+        font-size: 14px;
+        border-radius: 18px;
+        background: #d9d9d9;
+      }
+  }
+  > button {
+    padding: 2px 4px;
+    margin-top: 8px;
+    color: #666;
+    border: none;
+    border-bottom: 1px solid #333;
+    background: none;
+  }
 `
-
 const NotesSection = styled.section`
 
 `
-
 const CategorySection = styled.section`
 
 `
-
 const NumberPadSection = styled.section`
 
 `
