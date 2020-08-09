@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import React from 'react'
 
-const TagsSection = styled.section`
+const _TagsSection = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -28,5 +29,23 @@ const TagsSection = styled.section`
     background: none;
   }
 `
+
+const TagsSection: React.FunctionComponent = () => {
+  return (
+    <div>
+      <_TagsSection>
+        <ol>
+          <li>衣</li>
+          <li>食</li>
+          <li>住</li>
+          <li>行</li>
+        </ol>
+        <button>新建标签</button>
+      </_TagsSection>
+    </div>
+  )
+}
+
+
 
 export {TagsSection}
