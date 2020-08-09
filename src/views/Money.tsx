@@ -1,106 +1,11 @@
 import Layout from "../components/Layout";
 import React from "react";
 import styled from "styled-components";
+import {CategorySection} from './Money/CategorySection';
+import {NotesSection} from './Money/NotesSection';
+import {NumberPadSection} from './Money/NumberPadSection';
+import {TagsSection} from './Money/TagsSection';
 
-const TagsSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: self-start;
-  flex-grow: 1;
-  padding: 12px 16px;
-  background: #fff;
-  > ol {
-    margin: 0 -12px;
-      > li {
-        padding: 3px 18px;
-        margin: 8px 12px;
-        display: inline-block;
-        font-size: 14px;
-        border-radius: 18px;
-        background: #d9d9d9;
-      }
-  }
-  > button {
-    padding: 2px 4px;
-    margin-top: 8px;
-    color: #666;
-    border: none;
-    border-bottom: 1px solid #333;
-    background: none;
-  }
-`
-const NotesSection = styled.section`
-  font-size: 14px;
-  padding: 10px 16px;
-  background: #f5f5f5;
-  > label {
-      display: flex;
-      align-items: center;
-      > span {
-        padding-right: 16px;
-        white-space: nowrap;
-      }
-      > input {
-        width: 100%;
-        border: none;
-        background: none;
-      }
-  }
-`
-const CategorySection = styled.section`
-  font-size: 24px;
-  > ul {
-    display: flex;
-    background: #c4c4c4;
-    > li {
-      position: relative;
-      padding: 16px 0;
-      width: 50%;
-      text-align: center;
-      &.selected::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        display: block;
-        height: 3px;
-        width: 100%;
-        background: #333;
-      }
-    }
-  }
-`
-const NumberPadSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  > .output {
-    padding: 0 16px;
-    line-height: 72px;
-    font-size: 36px;
-    text-align: right;
-    box-shadow: inset 0 -5px 5px -5px rgba(0,0,0,0.25),
-                inset 0 5px 5px -5px rgba(0,0,0,0.25);
-    background: #fff;
-  }
-  > .pad {
-    > button {
-      float: left;
-      width: 25%;
-      height: 64px;
-      font-size: 18px;
-      border: none;
-      background: skyblue;
-      &.ok {
-      float: right;
-        height: 128px;
-      }
-      &.zero {
-         width: 50%;
-      }
-    }
-  }
-`
 
 const MyLayout = styled(Layout)`
   display: flex;
