@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import {Link, NavLink} from "react-router-dom";
-import React from "react";
-import Icon from "./Icon";
+import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
+import React from 'react';
+import Icon from './Icon';
 
 const NavWrapper = styled.nav`
   line-height: 24px;
@@ -30,33 +30,33 @@ const NavWrapper = styled.nav`
       } 
     }
   }
-`
+`;
 
 const Nav = () => {
-    return (
-        <NavWrapper>
-            <ul>
-                <li>
-                    <NavLink to="/tags" activeClassName="selected">
-                        <Icon name='tag'/>
-                        标签
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/money" activeClassName="selected">
-                        <Icon name='money'/>
-                        记账
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/statistics" activeClassName="selected">
-                        <Icon name='chart'/>
-                        统计
-                    </NavLink>
-                </li>
-            </ul>
-        </NavWrapper>
-    )
-}
+  return (
+    <NavWrapper>
+      <ul>
+        <li>
+          <NavLink to="/tags" activeClassName="selected">
+            <Icon name='tag'/>
+            标签
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/money" activeClassName="selected">
+            <Icon name='money'/>
+            记账
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/statistics" activeClassName="selected">
+            <Icon name='chart'/>
+            统计
+          </NavLink>
+        </li>
+      </ul>
+    </NavWrapper>
+  );
+};
 
 export default Nav;
