@@ -41,3 +41,15 @@ button {
   height: 1em;
   vertical-align: -0.15em;
 }
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.oneLine {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
