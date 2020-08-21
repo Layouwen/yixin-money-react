@@ -20,24 +20,12 @@ const useTags = () => {
     }
     return result;
   };
-  const updateTag = (id: number, obj: { name: string }) => {
-    // 获取需要更改的下标
-    const index = findTagIndex(id);
-    // 深拷贝 tags 得到 tagsClone
-    const tagsClone = JSON.parse(JSON.stringify(tags));
-    // 把 tagsClone 的第 index 删掉，换成 {id:id, name: obj.name}
-    tagsClone.splice(index, 1, {id: id, name: obj.name});
-    setTags(tagsClone);
+  const updateTag = (id: number, {name}: { name: string }) => {
+    setTags(tags.map(tag => tag.id === id ? {id, name} : tag));
   };
   const deleteTag = (id: number) => {
-    // 获取需要删除的下标
-    const index = findTagIndex(id)
-    // 深拷贝 tags 的到 tagsClone
-    const tagsClone = JSON.parse(JSON.stringify(tags))
-    // 删除 tagsClone 的 index 个数据
-    tagsClone.splice(index, 1)
-    setTags(tagsClone)
-  }
+    setTags(tags.filter(tag => tag.id !== id));
+  };
   return {tags, setTags, findTag, findTagIndex, updateTag, deleteTag};
 };
 export {useTags};
