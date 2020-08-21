@@ -5,7 +5,6 @@ import {CategorySection} from './Money/CategorySection';
 import {NotesSection} from './Money/NotesSection';
 import {NumberPadSection} from './Money/NumberPadSection';
 import {TagsSection} from './Money/TagsSection';
-import {Simulate} from 'react-dom/test-utils';
 import {useRecords} from '../hooks/useRecords';
 
 const MyLayout = styled(Layout)`
@@ -34,9 +33,10 @@ function Money() {
   };
 
   const submit = () => {
-    addRecord(selected);
-    alert('保存成功');
-    setSelected(defaultFormData);
+    if (addRecord(selected)) {
+      alert('保存成功');
+      setSelected(defaultFormData);
+    }
   };
 
   return (
