@@ -12,6 +12,10 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
+const CategoryWrapper = styled.div`
+  background: #c4c4c4;
+`;
+
 type Category = '-' | '+'
 
 const defaultFormData = {
@@ -38,19 +42,16 @@ function Money() {
       setSelected(defaultFormData);
     }
   };
-  useEffect(() => {
-    setTimeout((
-      setSelected({...selected, amount: 1000})
-    ), 3000);
-  }, []);
   return (
     <MyLayout>
       <TagsSection value={selected.tagIds}
                    onChange={tagIds => onChange({tagIds})}/>
       <NotesSection value={selected.note}
                     onChange={note => onChange({note})}/>
-      <CategorySection value={selected.category}
-                       onChange={category => onChange({category})}/>
+      <CategoryWrapper>
+        <CategorySection value={selected.category}
+                         onChange={category => onChange({category})}/>
+      </CategoryWrapper>
       <NumberPadSection value={selected.amount}
                         onChange={value => onChange({amount: value})}
                         onOk={submit}

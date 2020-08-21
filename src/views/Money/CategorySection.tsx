@@ -5,7 +5,6 @@ const Wrapper = styled.section`
   font-size: 24px;
   > ul {
     display: flex;
-    background: #c4c4c4;
     > li {
       position: relative;
       padding: 16px 0;
@@ -34,7 +33,7 @@ type Props = {
 const CategorySection: React.FC<Props> = (props) => {
   const categoryMap = {'-': '支出', '+': '收入'};
   const [categoryList] = useState<('+' | '-')[]>(['-', '+']);
-  const category = props.value
+  const category = props.value;
   return (
     <Wrapper>
       <ul>
