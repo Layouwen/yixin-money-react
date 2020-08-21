@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTags} from 'useTags';
-import {useParams} from 'react-router-dom'
+import {useParams} from 'react-router-dom';
 import Layout from 'components/Layout';
 import {Button} from 'components/Button';
 import Icon from 'components/Icon';
@@ -24,12 +24,12 @@ const InputWrapper = styled.div`
   margin-top: 8px;
   padding: 0 16px;
   background: #fff;
-`
+`;
 const Tag: React.FC = () => {
-  const {findTag} = useTags()
-  let {id} = useParams<Params>()
+  const {findTag, updateTag} = useTags();
+  let {id: idString} = useParams<Params>();
 
-  const tag = findTag(parseInt(id))
+  const tag = findTag(parseInt(idString));
   return (
     <Layout>
       <Topbar>
@@ -38,7 +38,12 @@ const Tag: React.FC = () => {
         <Icon/>
       </Topbar>
       <InputWrapper>
-        <Input label="标签名" type="text" placeholder="标签名" value={tag.name}/>
+        <Input label="标签名" type="text" placeholder="标签名"
+               value={tag.name}
+               onChange={(e) => {
+                 updateTag(tag.id, {name: e.target.value});
+               }}
+        />
       </InputWrapper>
       <Center>
         <Space/>
@@ -50,4 +55,4 @@ const Tag: React.FC = () => {
   );
 };
 
-export {Tag}
+export {Tag};
