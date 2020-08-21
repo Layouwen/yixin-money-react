@@ -2,9 +2,12 @@ import React from 'react';
 import {useTags} from 'useTags';
 import {useParams} from 'react-router-dom'
 import Layout from 'components/Layout';
-import {Button} from '../components/Button';
-import Icon from '../components/Icon';
+import {Button} from 'components/Button';
+import Icon from 'components/Icon';
 import styled from 'styled-components';
+import {Input} from 'components/Input';
+import {Center} from 'components/Center';
+import {Space} from '../components/Space';
 
 type Params = {
   id: string
@@ -17,6 +20,11 @@ const Topbar = styled.header`
   padding: 14px;
   background: #fff;
 `;
+const InputWrapper = styled.div`
+  margin-top: 8px;
+  padding: 0 16px;
+  background: #fff;
+`
 const Tag: React.FC = () => {
   const {findTag} = useTags()
   let {id} = useParams<Params>()
@@ -29,13 +37,15 @@ const Tag: React.FC = () => {
         <span>编辑页面</span>
         <Icon/>
       </Topbar>
-      <div>
-        <label>
-          <span>标签名</span>
-          <input type="text" placeholder="标签名"/>
-        </label>
-      </div>
-      <Button>删除标签</Button>
+      <InputWrapper>
+        <Input label="标签名" type="text" placeholder="标签名" value={tag.name}/>
+      </InputWrapper>
+      <Center>
+        <Space/>
+        <Space/>
+        <Space/>
+        <Button>删除标签</Button>
+      </Center>
     </Layout>
   );
 };

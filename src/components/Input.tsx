@@ -5,7 +5,7 @@ const Label = styled.label`
     display: flex;
     align-items: center;
     > span { padding-right: 16px; white-space: nowrap; }
-    > input { width: 100%; border: none; background: none; }
+    > input { width: 100%; height: 44px; border: none; background: none; }
 `;
 
 type Props = {
