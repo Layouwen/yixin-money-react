@@ -55,7 +55,7 @@ const TagsSection: React.FC<Props> = (props) => {
     <Wrapper>
       <ol>
         {tags.map(tag =>
-          <li key={tag.id} onClick={() => onToggleTag(tag.id)} className={getClass(tag.id)}>{tag.id}{tag.name}</li>
+          <li key={tag.id} onClick={() => onToggleTag(tag.id)} className={getClass(tag.id)}>{tag.name}</li>
         )}
       </ol>
       <button onClick={addTag}>新建标签</button>
