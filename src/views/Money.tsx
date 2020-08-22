@@ -1,5 +1,5 @@
 import Layout from '../components/Layout';
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import styled from 'styled-components';
 import {CategorySection} from './Money/CategorySection';
 import {NotesSection} from './Money/NotesSection';
@@ -43,7 +43,7 @@ function Money() {
     }
   };
   return (
-    <MyLayout>
+    <MyLayout scrollTop={999}>
       <TagsSection value={selected.tagIds}
                    onChange={tagIds => onChange({tagIds})}/>
       <NotesSection value={selected.note}
